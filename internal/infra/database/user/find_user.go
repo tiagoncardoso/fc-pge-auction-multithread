@@ -30,12 +30,9 @@ func (ur *UserRepository) FindUserById(
 	ctx context.Context, userId string) (*user_entity.User, *internal_error.InternalError) {
 	filter := bson.M{"_id": userId}
 
-	fmt.Println("filter", filter)
-
 	var userEntityMongo UserEntityMongo
 	err := ur.Collection.FindOne(ctx, filter).Decode(&userEntityMongo)
 	if err != nil {
-		fmt.Println("err", err)
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			logger.Error(fmt.Sprintf("User not found with this id = %d", userId), err)
 			return nil, internal_error.NewNotFoundError(
