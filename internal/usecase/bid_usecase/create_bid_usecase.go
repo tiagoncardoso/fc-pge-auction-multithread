@@ -2,9 +2,9 @@ package bid_usecase
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/logger"
-	"fullcycle-auction_go/internal/entity/bid_entity"
-	"fullcycle-auction_go/internal/internal_error"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/bid_entity"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
 	"os"
 	"strconv"
 	"time"

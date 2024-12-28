@@ -2,9 +2,9 @@ package bid_controller
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/rest_err"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/rest_err"
 	"net/http"
 )
 

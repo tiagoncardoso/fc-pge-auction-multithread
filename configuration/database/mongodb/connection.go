@@ -2,7 +2,7 @@ package mongodb
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/logger"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"os"

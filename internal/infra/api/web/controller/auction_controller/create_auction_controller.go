@@ -2,10 +2,10 @@ package auction_controller
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/rest_err"
-	"fullcycle-auction_go/internal/infra/api/web/validation"
-	"fullcycle-auction_go/internal/usecase/auction_usecase"
 	"github.com/gin-gonic/gin"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/rest_err"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/infra/api/web/validation"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/usecase/auction_usecase"
 	"net/http"
 )
 

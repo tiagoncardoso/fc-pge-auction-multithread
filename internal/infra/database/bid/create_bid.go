@@ -2,11 +2,11 @@ package bid
 
 import (
 	"context"
-	"fullcycle-auction_go/configuration/logger"
-	"fullcycle-auction_go/internal/entity/auction_entity"
-	"fullcycle-auction_go/internal/entity/bid_entity"
-	"fullcycle-auction_go/internal/infra/database/auction"
-	"fullcycle-auction_go/internal/internal_error"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/auction_entity"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/bid_entity"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/infra/database/auction"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
 	"os"
 	"sync"
 	"time"

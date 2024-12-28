@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"fullcycle-auction_go/configuration/logger"
-	"fullcycle-auction_go/internal/entity/user_entity"
-	"fullcycle-auction_go/internal/internal_error"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/user_entity"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -30,9 +30,12 @@ func (ur *UserRepository) FindUserById(
 	ctx context.Context, userId string) (*user_entity.User, *internal_error.InternalError) {
 	filter := bson.M{"_id": userId}
 
+	fmt.Println("filter", filter)
+
 	var userEntityMongo UserEntityMongo
 	err := ur.Collection.FindOne(ctx, filter).Decode(&userEntityMongo)
 	if err != nil {
+		fmt.Println("err", err)
 		if errors.Is(err, mongo.ErrNoDocuments) {
 			logger.Error(fmt.Sprintf("User not found with this id = %d", userId), err)
 			return nil, internal_error.NewNotFoundError(

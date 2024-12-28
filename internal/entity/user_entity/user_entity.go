@@ -2,7 +2,7 @@ package user_entity
 
 import (
 	"context"
-	"fullcycle-auction_go/internal/internal_error"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
 )
 
 type User struct {
