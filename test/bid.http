@@ -1,0 +1,51 @@
+POST http://localhost:8080/bid
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user_id": "94792521-3cf4-4221-8d4b-ceef797d32e2",
+  "auction_id": "fb479b90-c20c-463f-be90-abd8b3b24255",
+  "amount":  1001
+}
+
+###
+
+POST http://localhost:8080/bid
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user_id": "ccfca080-4d5c-4d12-871d-8acafee8206e",
+  "auction_id": "fb479b90-c20c-463f-be90-abd8b3b24255",
+  "amount":  1006
+}
+
+###
+
+POST http://localhost:8080/bid
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user_id": "94792521-3cf4-4221-8d4b-ceef797d32e2",
+  "auction_id": "fb479b90-c20c-463f-be90-abd8b3b24255",
+  "amount":  1500
+}
+
+###
+
+POST http://localhost:8080/bid
+Accept: application/json
+Content-Type: application/json
+
+{
+  "user_id": "ccfca080-4d5c-4d12-871d-8acafee8206e",
+  "auction_id": "fb479b90-c20c-463f-be90-abd8b3b24255",
+  "amount":  1900
+}
+
+###
+
+GET http://localhost:8080/bid/fb479b90-c20c-463f-be90-abd8b3b24255
+Accept: application/json
+Content-Type: application/json

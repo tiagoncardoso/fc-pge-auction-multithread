@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/user_entity"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
@@ -49,4 +50,20 @@ func (ur *UserRepository) FindUserById(
 	}
 
 	return userEntity, nil
+}
+
+func (ur *UserRepository) CreateUser(
+	ctx context.Context, userName string) *internal_error.InternalError {
+	userEntityMongo := UserEntityMongo{
+		Id:   uuid.New().String(),
+		Name: userName,
+	}
+
+	_, err := ur.Collection.InsertOne(ctx, userEntityMongo)
+	if err != nil {
+		logger.Error("Error trying to create user", err)
+		return internal_error.NewInternalServerError("Error trying to create user")
+	}
+
+	return nil
 }
