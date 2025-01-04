@@ -2,7 +2,6 @@ package bid_usecase
 
 import (
 	"context"
-	"fmt"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/logger"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/bid_entity"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/internal_error"
@@ -70,7 +69,6 @@ func (bu *BidUseCase) triggerCreateRoutine(ctx context.Context) {
 		for {
 			select {
 			case bidEntity, ok := <-bu.bidChannel:
-				fmt.Println("len(bidBatch)", len(bidBatch))
 				if !ok {
 					if len(bidBatch) > 0 {
 						if err := bu.BidRepository.CreateBid(ctx, bidBatch); err != nil {

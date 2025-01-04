@@ -23,14 +23,12 @@ type AuctionEntityMongo struct {
 	Timestamp   int64                           `bson:"timestamp"`
 }
 type AuctionRepository struct {
-	Collection            *mongo.Collection
-	AuctionTimeoutControl chan auction_entity.AuctionTimeoutControl
+	Collection *mongo.Collection
 }
 
-func NewAuctionRepository(database *mongo.Database, auctionTimeoutControl chan auction_entity.AuctionTimeoutControl) *AuctionRepository {
+func NewAuctionRepository(database *mongo.Database) *AuctionRepository {
 	return &AuctionRepository{
-		Collection:            database.Collection("auctions"),
-		AuctionTimeoutControl: auctionTimeoutControl,
+		Collection: database.Collection("auctions"),
 	}
 }
 

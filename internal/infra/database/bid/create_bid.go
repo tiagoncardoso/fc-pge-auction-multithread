@@ -89,6 +89,7 @@ func (bd *BidRepository) CreateBid(
 				return
 			}
 			if auctionEntity.Status == auction_entity.Completed {
+				logger.Warn("auction is closed")
 				return
 			}
 
