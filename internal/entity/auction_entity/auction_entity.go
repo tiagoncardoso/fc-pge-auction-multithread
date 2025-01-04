@@ -49,6 +49,11 @@ type Auction struct {
 	Timestamp   time.Time
 }
 
+type AuctionTimeoutControl struct {
+	AuctionId      string
+	AuctionTimeout time.Time
+}
+
 type ProductCondition int
 type AuctionStatus int
 
@@ -75,4 +80,7 @@ type AuctionRepositoryInterface interface {
 
 	FindAuctionById(
 		ctx context.Context, id string) (*Auction, *internal_error.InternalError)
+
+	CloseAuction(
+		ctx context.Context, id string) (string, *internal_error.InternalError)
 }

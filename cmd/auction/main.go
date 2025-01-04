@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/configuration/database/mongodb"
+	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/entity/auction_entity"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/infra/api/web/controller/auction_controller"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/infra/api/web/controller/bid_controller"
 	"github.com/tiagoncardoso/fc-pge-auction-multithread/internal/infra/api/web/controller/user_controller"
@@ -55,8 +56,10 @@ func initDependencies(database *mongo.Database) (
 	createUserController *user_controller.CreateUserController,
 ) {
 
-	auctionRepository := auction.NewAuctionRepository(database)
-	bidRepository := bid.NewBidRepository(database, auctionRepository)
+	auctionTimeControl := make(chan auction_entity.AuctionTimeoutControl)
+
+	auctionRepository := auction.NewAuctionRepository(database, auctionTimeControl)
+	bidRepository := bid.NewBidRepository(database, auctionRepository, auctionTimeControl)
 	userRepository := user.NewUserRepository(database)
 
 	userController = user_controller.NewUserController(

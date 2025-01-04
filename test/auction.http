@@ -16,6 +16,19 @@ Content-Type: application/json
 Accept: application/json
 
 {
+  "product_name": "Notebook",
+  "category": "Eletrônicos",
+  "description": "Lote de aparelhos eletrônicos",
+  "condition": 0
+}
+
+###
+
+POST http://localhost:8080/auction
+Content-Type: application/json
+Accept: application/json
+
+{
   "product_name": "Fiat Uno",
   "category": "Auto",
   "description": "Lote de Veículos",
