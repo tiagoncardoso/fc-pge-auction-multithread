@@ -32,7 +32,7 @@ func (ar *AuctionRepository) FindAuctionById(
 	}, nil
 }
 
-func (repo *AuctionRepository) FindAuctions(
+func (ar *AuctionRepository) FindAuctions(
 	ctx context.Context,
 	status auction_entity.AuctionStatus,
 	category string,
@@ -51,7 +51,7 @@ func (repo *AuctionRepository) FindAuctions(
 		filter["product_name"] = primitive.Regex{Pattern: productName, Options: "i"}
 	}
 
-	cursor, err := repo.Collection.Find(ctx, filter)
+	cursor, err := ar.Collection.Find(ctx, filter)
 	if err != nil {
 		logger.Error("Error finding auctions", err)
 		return nil, internal_error.NewInternalServerError("Error finding auctions")
