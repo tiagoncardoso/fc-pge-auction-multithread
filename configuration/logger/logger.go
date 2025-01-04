@@ -11,8 +11,9 @@ var (
 
 func init() {
 	logConfiguration := zap.Config{
-		Level:    zap.NewAtomicLevelAt(zap.InfoLevel),
-		Encoding: "json",
+		Level:       zap.NewAtomicLevelAt(zap.InfoLevel),
+		Encoding:    "json",
+		OutputPaths: []string{"stdout"},
 		EncoderConfig: zapcore.EncoderConfig{
 			MessageKey:   "message",
 			LevelKey:     "level",
