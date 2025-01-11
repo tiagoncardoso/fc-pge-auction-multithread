@@ -62,7 +62,7 @@ func (ar *AuctionRepository) AuctionStatusWatch(ctx context.Context, auctionId s
 	wg.Add(1)
 	defer wg.Done()
 
-	ticker := time.NewTicker(10 * time.Second)
+	ticker := time.NewTicker(1 * time.Second)
 	defer ticker.Stop()
 
 	for {
