@@ -21,14 +21,14 @@ services:
       - "27017:27017"
     env_file:
       - cmd/auction/.env
-#    volumes:
-#      - mongo-data:/data/db
+    volumes:
+      - mongo-data:/data/db
     networks:
       - localNetwork
 
-#volumes:
-#  mongo-data:
-#    driver: local
+volumes:
+  mongo-data:
+    driver: local
 
 networks:
   localNetwork:
